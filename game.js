@@ -102,6 +102,19 @@ function draw() {
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
         ctx.fillText(board[r][c], x + CELL/2, y + CELL/2);
+
+        ctx.font = "bold 20px 'Comic Neue', cursive, sans-serif";
+ctx.textAlign = "center";
+ctx.textBaseline = "middle";
+
+// 테두리
+ctx.strokeStyle = "black";
+ctx.lineWidth = 3;
+ctx.strokeText(board[r][c], x + CELL/2, y + CELL/2);
+
+// 채우기
+ctx.fillStyle = selected.some(([sr, sc]) => sr===r && sc===c) ? 'yellow' : 'white';
+ctx.fillText(board[r][c], x + CELL/2, y + CELL/2);
       }
     }
   }
