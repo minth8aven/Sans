@@ -87,7 +87,21 @@ function draw() {
       ctx.strokeRect(x, y, CELL, CELL);
 
       if (board[r][c] !== 0) {
+        // 밝기 조절: 선택된 칸 제외
+        if (selected.some(([sr, sc]) => sr === r && sc === c)) {
+          ctx.filter = 'brightness(100%)'; // 원래 밝기
+        } else {
+          ctx.filter = 'brightness(50%)'; // 어둡게
+        }
         ctx.drawImage(appleImg, x + 2, y + 2, CELL - 4, CELL - 4);
+        ctx.filter = 'none';
+
+        // 숫자 표시 (Comic Sans)
+        ctx.fillStyle = selected.some(([sr, sc]) => sr === r && sc === c) ? 'yellow' : 'white';
+        ctx.font = "bold 20px 'Comic Sans MS', cursive, sans-serif";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText(board[r][c], x + CELL/2, y + CELL/2);
       }
     }
   }
