@@ -1,19 +1,14 @@
-/* 배경과 화면 중앙 정렬 */
 body {
-  background: #000000;
+  background: #f5f5f5;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  margin: 0; /* 브라우저 기본 여백 제거 */
+  margin: 0;
 }
 
-/* 게임 캔버스 스타일 */
 canvas {
   background: #ffffff;
   border: 2px solid #333;
-  touch-action: none; /* 모바일 드래그 지원 */
-  display: block; /* 캔버스가 자동 줄바꿈 안 되도록 */
+  touch-action: none;
 }
-
-/* 선택 강조, 숫자, 밝기 등은 JS에서 처리 */
